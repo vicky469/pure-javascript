@@ -5,16 +5,20 @@ function rotateDice(duration) {
         let image1 = document.querySelectorAll("img")[0];
         let image2 = document.querySelectorAll("img")[1];
 
+        // Starts a new interval that will repeatedly be called every 100 milliseconds
+        // The interval is stored in the rotationInterval variable so it can be stopped later.
         let rotationInterval = setInterval(function() {
+            // generate random numbers between 1 and 6
             randomNumber1 = Math.floor(Math.random() * 6) + 1;
             randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
             image1.setAttribute("src", `images/dice${randomNumber1}.png`);
             image2.setAttribute("src", `images/dice${randomNumber2}.png`);
         }, 100); // Change this value to adjust the speed of rotation
 
         setTimeout(function() {
-            clearInterval(rotationInterval);
-            resolve();
+            clearInterval(rotationInterval); //Stops the interval
+            resolve(); // Resolve the Promise (the rotation is done). Any function attached with .then() will be called.
         }, duration);
     });
 }
