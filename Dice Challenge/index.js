@@ -1,8 +1,7 @@
 let randomNumber1, randomNumber2;
-let ready = false;
 
 function rotateDice(duration) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         let image1 = document.querySelectorAll("img")[0];
         let image2 = document.querySelectorAll("img")[1];
 
